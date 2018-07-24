@@ -108,6 +108,8 @@ const generateItems = (num) => {
 
 // Insert 100 items into the database:
 generateItems(100);
+connection.destroy();
+process.exit();
 
 // Export modules
 module.exports = {
