@@ -21,6 +21,7 @@
     "mysql": "^2.15.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "supertest": "^3.1.0",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0"
   },
