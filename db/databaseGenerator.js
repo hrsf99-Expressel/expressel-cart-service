@@ -30,6 +30,7 @@ connection.query(`create table if not exists items (
   price float not null,
   storeID int not null,
   storeName varchar(100) not null,
+  storeLogo varchar(1000) not null,
   storeMinimumFreeShipping int not null,
   itemDeliveryTime varchar(100) not null,
   primary key (id)
@@ -57,21 +58,25 @@ const stores = [
     storeID: 1,
     storeName: 'Target',
     storeMinimumFreeShipping: 15,
+    logo: 'https://i.imgur.com/KHPqFqS.png',
   },
   {
     storeID: 2,
     storeName: 'Walmart',
     storeMinimumFreeShipping: 35,
+    logo: 'https://i.imgur.com/LC42zSP.png',
   },
   {
     storeID: 3,
     storeName: 'Walgreens',
     storeMinimumFreeShipping: 15,
+    logo: 'https://i.imgur.com/Etj1ibh.jpg',
   },
   {
     storeID: 4,
     storeName: 'Costco',
     storeMinimumFreeShipping: 35,
+    logo: 'https://i.imgur.com/bmUF7yq.png',
   },
 ];
 
@@ -84,6 +89,7 @@ const generateItems = (num) => {
       price: generateRandomNumber(1, 3000, 2),
       storeID: randomStore.storeID,
       storeName: randomStore.storeName,
+      storeLogo: randomStore.logo,
       storeMinimumFreeShipping: randomStore.storeMinimumFreeShipping,
       itemDeliveryTime: generateRandomDate(new Date(2018, 7, 1), new Date(2018, 7, 14)),
     };
@@ -92,12 +98,14 @@ const generateItems = (num) => {
         price,
         storeID,
         storeName,
+        storeLogo,
         storeMinimumFreeShipping,
         itemDeliveryTime
       ) values (
         '${generatedItem.price}',
         '${generatedItem.storeID}',
         '${generatedItem.storeName}',
+        '${generatedItem.storeLogo}',
         '${generatedItem.storeMinimumFreeShipping}',
         '${generatedItem.itemDeliveryTime}')`, (error) => {
       if (error) throw error;
@@ -116,3 +124,5 @@ module.exports = {
   randomItemPicker,
   generateItems,
 };
+
+//TODO: change the logo of Target
