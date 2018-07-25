@@ -71,7 +71,7 @@ const stores = [
   {
     storeID: 4,
     storeName: 'Costco',
-    storeMinimumFreeShipping: 0,
+    storeMinimumFreeShipping: 35,
   },
 ];
 
@@ -116,3 +116,4 @@ module.exports = {
   randomItemPicker,
   generateItems,
 };
+
