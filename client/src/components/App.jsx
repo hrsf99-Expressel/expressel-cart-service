@@ -41,8 +41,8 @@ class App extends React.Component {
     console.log(this.state.itemNum);
   }
 
-
   render() {
+     const itemNum = this.state.itemNum;
     return (
       <div>
         <div className="deliveryRow">
@@ -55,7 +55,13 @@ class App extends React.Component {
         <div className="return">Free returns</div>
         <div className="saving">Deal: 20% off your first order</div>
         <div className="effectivePrice">${this.state.price}</div>
-        <StaticAddToCart onStaticAddToCartClicked={this.onStaticAddToCartClicked}/>
+        <div>
+          {itemNum ? (
+          <div>Hi!</div>
+        ) : (
+          <StaticAddToCart onStaticAddToCartClicked={this.onStaticAddToCartClicked}/>
+        )}
+        </div>
         <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
       </div>
     );
