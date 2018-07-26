@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import StaticAddToCart from './StaticAddToCart.jsx';
+import DynamicAddToCart from './DynamicAddToCart.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,8 @@ class App extends React.Component {
     };
     this.getItemInfo = this.getItemInfo.bind(this);
     this.onStaticAddToCartClicked = this.onStaticAddToCartClicked.bind(this);
+    this.onMinusSignClicked = this.onMinusSignClicked.bind(this);
+    this.onPlusSignClicked = this.onPlusSignClicked.bind(this);
   }
 
   getItemInfo(){
@@ -36,13 +39,24 @@ class App extends React.Component {
 
   onStaticAddToCartClicked(e) {
     e.preventDefault;
-    alert('Clicked!');
     this.setState({itemNum: 1});
     console.log(this.state.itemNum);
   }
 
+  onMinusSignClicked(e) {
+    e.preventDefault;
+    this.setState({itemNum: this.state.itemNum - 1});
+    console.log(this.state.itemNum);
+  }
+
+  onPlusSignClicked(e) {
+    e.preventDefault;
+    this.setState({itemNum: this.state.itemNum + 1});
+    console.log(this.state.itemNum);
+  }
+
   render() {
-     const itemNum = this.state.itemNum;
+    const itemNum = this.state.itemNum;
     return (
       <div>
         <div className="deliveryRow">
@@ -57,7 +71,11 @@ class App extends React.Component {
         <div className="effectivePrice">${this.state.price}</div>
         <div>
           {itemNum ? (
-          <div>Hi!</div>
+          <DynamicAddToCart
+            onMinusSignClicked={this.onMinusSignClicked}
+            onPlusSignClicked={this.onPlusSignClicked}
+            itemNum={this.state.itemNum}
+          />
         ) : (
           <StaticAddToCart onStaticAddToCartClicked={this.onStaticAddToCartClicked}/>
         )}
