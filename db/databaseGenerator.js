@@ -124,5 +124,3 @@ module.exports = {
   randomItemPicker,
   generateItems,
 };
-
-//TODO: change the logo of Target
