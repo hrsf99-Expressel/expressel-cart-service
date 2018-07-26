@@ -106,26 +106,6 @@ div {
   padding: 8px 12px;
   position: relative;
   text-transform: uppercase;
-  /*min-width: 88px;
-  line-height: 36px;
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
-  outline: none;
-  border: none;
-  display: inline-block;
-  white-space: nowrap;
-  text-decoration: none;
-  vertical-align: baseline;
-  text-align: center;
-  margin: 0;
-  min-width: 88px;
-  line-height: 36px;
-  padding: 0 16px;
-  border-radius: 2px;
-  overflow: visible;
-  transform: translate3d(0, 0, 0);
-  transition: background 400ms cubic-bezier(0.25, 0.8, 0.25, 1),box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 .dynamicAddToCart {
@@ -142,6 +122,28 @@ div {
   font-size: 12px;
   color: rgba(0,0,0,0.54);
   line-height: 1.43em;
+}
+
+.progressBar {
+  position: relative;
+  height: 20px;
+  width: 350px;
+  border-radius: 50px;
+  border: 1px solid #333;
+}
+
+.filler {
+  background: #1DA598;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
+}
+
+.cart {
+  position: absolute;
+  left: 80px;
+  top: 10px;
+  z-index: -1;
 }
 
 /* <style>…</style>
