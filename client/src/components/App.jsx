@@ -26,6 +26,7 @@ class App extends React.Component {
   }
 
   getItemInfo(){
+    let id =
     axios.get(`/item/82`).then((response) => {
       this.setState({price: response.data[0].price,
                      deliveryDate: response.data[0].itemDeliveryTime,
@@ -35,6 +36,18 @@ class App extends React.Component {
                    })
     })
   };
+
+  fetchInfo () {
+    let id = this.props.id || parseInt(window.location.pathname.split('/')[2], 10);
+    return new Promise((resolve, reject) => {
+      axios.get(`http://localhost:3001/amenities/${id}/amenities`)
+        .then(({ data }) => this.setState({ data: data }))
+        .then(()=> resolve())
+        .catch((error) => {
+          console.log('error', error)
+        });
+    });
+  }
 
   componentDidMount() {
     this.getItemInfo();
@@ -99,9 +112,11 @@ class App extends React.Component {
           {cart}
         </div>
         <div className="deliveryRow">
+          <i class="material-icons md-12">local_shipping</i>
           <div>Free delivery by {this.state.deliveryDate} on </div>
           <div>{this.state.storeName} orders over ${this.state.storeMinimumFreeShipping}</div>
         </div>
+        <i class="material-icons md-12">place</i>
         <div className="ship">Ship to <span className="location">San Jose - 95121</span></div>
         <img className="logo" src={this.state.storeLogo} />
         <div className="soldBy">Sold by {this.state.storeName}</div>
@@ -120,6 +135,7 @@ class App extends React.Component {
         )}
         </div>
         <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
+        <i class="material-icons md-12">verified_user</i>
         <div className="howitworks">Google Express works with retailers to protect your order. Learn more</div>
       </div>
     );
