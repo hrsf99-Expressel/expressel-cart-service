@@ -38,11 +38,9 @@ connection.query(`create table if not exists items (
   if (error) throw error;
 });
 
-// Create a function to generate a random number:
-const generateRandomNumber = (min, max, decimal = 0) => {
-  const rand = Math.random() * (max - min) + min;
-  const power = decimal ** 10;
-  return Math.floor(rand * power) / power;
+const generateRandomNumber = (minimum, maximum, precision = 0) => {
+  const random = Math.random() * (maximum - minimum + 1) + minimum;
+  return random.toFixed(precision);
 };
 
 const generateRandomDate = (start, end) => {
@@ -58,7 +56,7 @@ const stores = [
     storeID: 1,
     storeName: 'Target',
     storeMinimumFreeShipping: 15,
-    logo: 'https://i.imgur.com/KHPqFqS.png',
+    logo: 'https://i.imgur.com/nAsg0XT.png',
   },
   {
     storeID: 2,
@@ -86,7 +84,7 @@ const generateItems = (num) => {
   for (let i = 0; i < num; i++) {
     const randomStore = randomItemPicker(stores);
     const generatedItem = {
-      price: generateRandomNumber(1, 3000, 2),
+      price: generateRandomNumber(1, 1000, 2),
       storeID: randomStore.storeID,
       storeName: randomStore.storeName,
       storeLogo: randomStore.logo,
@@ -124,5 +122,3 @@ module.exports = {
   randomItemPicker,
   generateItems,
 };
-
-//TODO: change the logo of Target
