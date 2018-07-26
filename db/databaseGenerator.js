@@ -75,7 +75,7 @@ const stores = [
   {
     storeID: 4,
     storeName: 'Costco',
-    storeMinimumFreeShipping: 0,
+    storeMinimumFreeShipping: 35,
     logo: 'https://i.imgur.com/bmUF7yq.png',
   },
 ];
