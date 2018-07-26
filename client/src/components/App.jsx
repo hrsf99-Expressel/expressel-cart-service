@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import StaticAddToCart from './StaticAddToCart.jsx';
 import DynamicAddToCart from './DynamicAddToCart.jsx';
+import Cart from './Cart.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class App extends React.Component {
   }
 
   getItemInfo(){
-    axios.get(`/item/10`).then((response) => {
+    axios.get(`/item/82`).then((response) => {
       this.setState({price: response.data[0].price,
                      deliveryDate: response.data[0].itemDeliveryTime,
                      storeName: response.data[0].storeName,
@@ -35,24 +36,34 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getItemInfo();
-  }
+  };
 
   onStaticAddToCartClicked(e) {
     e.preventDefault;
-    this.setState({itemNum: 1});
     console.log(this.state.itemNum);
-  }
+    this.setState({itemNum: 1,
+                  subtotal: this.state.price}, () => {
+                    console.log(this.state.itemNum);
+                    console.log(this.state.subtotal);
+                  });
+                }
 
   onMinusSignClicked(e) {
     e.preventDefault;
-    this.setState({itemNum: this.state.itemNum - 1});
-    console.log(this.state.itemNum);
+    this.setState({itemNum: this.state.itemNum - 1,
+                  subtotal: this.state.subtotal - this.state.price}, () => {
+                    console.log(this.state.itemNum);
+                    console.log(this.state.subtotal);
+                  });
   }
 
   onPlusSignClicked(e) {
     e.preventDefault;
-    this.setState({itemNum: this.state.itemNum + 1});
-    console.log(this.state.itemNum);
+    this.setState({itemNum: this.state.itemNum + 1,
+                  subtotal: this.state.subtotal + this.state.price}, () => {
+                    console.log(this.state.itemNum);
+                    console.log(this.state.subtotal);
+                  });
   }
 
   render() {
@@ -81,6 +92,12 @@ class App extends React.Component {
         )}
         </div>
         <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
+        <div className="howitworks">Google Express works with retailers to protect your order. Learn more</div>
+        <Cart
+          storeLogo={this.state.storeLogo}
+          subtotal={this.state.subtotal}
+          storeMinimumFreeShipping={this.state.storeMinimumFreeShipping}
+        />
       </div>
     );
   }
