@@ -15,12 +15,14 @@ class App extends React.Component {
       storeLogo: '',
       storeMinimumFreeShipping: 0,
       itemNum: 0,
-      subtotal: 0
+      subtotal: 0,
+      clicked: false
     };
     this.getItemInfo = this.getItemInfo.bind(this);
     this.onStaticAddToCartClicked = this.onStaticAddToCartClicked.bind(this);
     this.onMinusSignClicked = this.onMinusSignClicked.bind(this);
     this.onPlusSignClicked = this.onPlusSignClicked.bind(this);
+    this.revertState = this.revertState.bind(this);
   }
 
   getItemInfo(){
@@ -42,34 +44,60 @@ class App extends React.Component {
     e.preventDefault;
     console.log(this.state.itemNum);
     this.setState({itemNum: 1,
-                  subtotal: this.state.price}, () => {
+                  subtotal: this.state.price,
+                  clicked: true}, () => {
                     console.log(this.state.itemNum);
                     console.log(this.state.subtotal);
                   });
-                }
+    this.revertState();
+  }
 
   onMinusSignClicked(e) {
     e.preventDefault;
     this.setState({itemNum: this.state.itemNum - 1,
-                  subtotal: this.state.subtotal - this.state.price}, () => {
+                  subtotal: this.state.subtotal - this.state.price,
+                  clicked: true}, () => {
                     console.log(this.state.itemNum);
                     console.log(this.state.subtotal);
                   });
+    this.revertState();
   }
 
   onPlusSignClicked(e) {
     e.preventDefault;
     this.setState({itemNum: this.state.itemNum + 1,
-                  subtotal: this.state.subtotal + this.state.price}, () => {
+                  subtotal: this.state.subtotal + this.state.price,
+                  clicked: true}, () => {
                     console.log(this.state.itemNum);
                     console.log(this.state.subtotal);
                   });
+    this.revertState();
+  }
+
+  revertState() {
+    setTimeout(() => {
+        this.setState({
+        clicked: false
+      })
+    }, 3000);
   }
 
   render() {
     const itemNum = this.state.itemNum;
+    const clicked = this.state.clicked;
+    let cart;
+    if (clicked) {
+      cart = <Cart
+              storeLogo={this.state.storeLogo}
+              subtotal={this.state.subtotal}
+              storeMinimumFreeShipping={this.state.storeMinimumFreeShipping}
+            />
+    }
     return (
       <div>
+        <div>
+          {cart}
+        </div>
         <div className="deliveryRow">
           <div>Free delivery by {this.state.deliveryDate} on </div>
           <div>{this.state.storeName} orders over ${this.state.storeMinimumFreeShipping}</div>
@@ -93,11 +121,6 @@ class App extends React.Component {
         </div>
         <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
         <div className="howitworks">Google Express works with retailers to protect your order. Learn more</div>
-        <Cart
-          storeLogo={this.state.storeLogo}
-          subtotal={this.state.subtotal}
-          storeMinimumFreeShipping={this.state.storeMinimumFreeShipping}
-        />
       </div>
     );
   }
