@@ -23,6 +23,10 @@ div {
   line-height: 1.43em;
 }
 
+.main {
+  margin-top: 50px;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -94,6 +98,7 @@ div {
   font-size: 2em;
   font-weight: 800;
   font-family: "Open Sans",sans-serif;
+  padding-bottom: 0.5em;
 }
 
 .addToCart {
@@ -116,6 +121,7 @@ div {
   margin-bottom: 16px;
   padding: 8px 12px;
   position: relative;
+  outline: #e0e0e0 !important;
 }
 
 .terms {
@@ -132,10 +138,47 @@ div {
 }
 
 .cart {
-  position: absolute;
-  left: 80px;
+  background-color: #fff;
+  position: fixed;
+  left: 15px;
   top: 10px;
-  z-index: -1;
+  z-index: 1000;
+  color: #999;
+  font-weight: 800;
+}
+
+
+.itemNum {
+  font-weight: 800;
+}
+
+.containerButton {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: lightgrey;
+}
+
+.containerLogo {
+  display: grid;
+  grid-template-columns: 80px 230px;
+  padding-bottom: 1em;
+}
+
+.sellerInfoContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.containerLocation {
+  display: grid;
+  grid-template-columns: 60px 270px;
+  padding-bottom: 0.5em;
+}
+
+.deliveryRow {
+  display: grid;
+  grid-template-columns: 60px 270px;
+  padding-bottom: 0.5em;
 }
 
 i {
@@ -143,48 +186,6 @@ i {
   font-size: 12px;
 }
 
-.dynamicAddToCart {
-  color:
+.dynamicAddToCart < i {
+  color: #4285f4;
 }
-
-/* <style>…</style>
-.buyColumn[_ngcontent-c29] {
-    border-left: 1px solid #eee;
-    padding-left: 16px;
-}
-
-<style>…</style>
-.flexSetWidth[_ngcontent-c29] {
-    flex: 0 0 330px;
-    box-sizing: border-box;
-    max-width: 330px;
-    min-width: 330px;
-}
-user agent stylesheet
-div {
-    display: block;
-}
-.mat-drawer-container {
-    background-color: #fafafa;
-    color: rgba(0,0,0,0.87);
-}
-body {
-    height: 100%;
-    background-color: #fff;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    font-family: 'Roboto','Helvetica-neue',sans-serif;
-    font-size: 14px;
-    margin: 0;
-    overflow: hidden;
-}
-html {
-    font-smoothing: always;
-    -webkit-font-smoothing: antialiased;
-    height: 100%;
-} */

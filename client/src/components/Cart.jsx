@@ -18,7 +18,7 @@ class Cart extends React.Component {
       line = <div>${this.props.storeMinimumFreeShipping - this.props.subtotal} to FREE delivery</div>
     }
     if (this.props.subtotal >= this.props.storeMinimumFreeShipping) {
-      line = <div>FREE delivery</div>
+      line = <div>Subtotal: ${this.props.subtotal} FREE delivery</div>
     }
     if (this.props.subtotal === 0) {
       line = <div>Removed from cart</div>
