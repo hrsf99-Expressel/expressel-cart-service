@@ -27,7 +27,6 @@ class Cart extends React.Component {
       <div className="cart">
         <img className="logo" src={this.props.storeLogo} />
         {line}
-        <div>{this.props.subtotal / this.props.storeMinimumFreeShipping}</div>
       </div>
     )
   }
