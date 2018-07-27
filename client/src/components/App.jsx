@@ -107,20 +107,25 @@ class App extends React.Component {
             />
     }
     return (
-      <div>
+      <div className="main">
         <div>
           {cart}
         </div>
         <div className="deliveryRow">
-          <i class="material-icons md-12">local_shipping</i>
-          <div>Free delivery by {this.state.deliveryDate} on </div>
-          <div>{this.state.storeName} orders over ${this.state.storeMinimumFreeShipping}</div>
+          <i className="material-icons md-12">local_shipping</i>
+          <div>Free delivery by {this.state.deliveryDate}</div>
         </div>
-        <i class="material-icons md-12">place</i>
-        <div className="ship">Ship to <span className="location">San Jose - 95121</span></div>
-        <img className="logo" src={this.state.storeLogo} />
-        <div className="soldBy">Sold by {this.state.storeName}</div>
-        <div className="return">Free returns</div>
+        <div className="containerLocation">
+          <i className="material-icons md-12">place</i>
+          <div className="ship">Ship to <span className="blue">95121</span></div>
+        </div>
+        <div className="containerLogo">
+          <img className="logo" src={this.state.storeLogo} />
+          <div className="sellerInfoContainer">
+            <div className="soldBy">Sold by {this.state.storeName}</div>
+            <div className="blue">Free returns</div>
+          </div>
+        </div>
         <div className="saving">Deal: 20% off your first order</div>
         <div className="effectivePrice">${this.state.price}</div>
         <div>
@@ -135,8 +140,10 @@ class App extends React.Component {
         )}
         </div>
         <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
-        <i class="material-icons md-12">verified_user</i>
-        <div className="howitworks">Google Express works with retailers to protect your order. Learn more</div>
+        <div className="protectedContainer">
+          <i className="material-icons md-12">verified_user</i>
+          <div className="howitworks">Expressel works with retailers to protect your order. <span className="blue">Learn more</span></div>  
+        </div>
       </div>
     );
   }

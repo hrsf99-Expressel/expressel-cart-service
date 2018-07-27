@@ -9,7 +9,6 @@ b {
 body {
   border-left: 1px solid #eee;
   padding-left: 16px;
-  flex: 0 0 330px;
   box-sizing: border-box;
   max-width: 330px;
   min-width: 330px;
@@ -21,6 +20,10 @@ div {
   font-size: 14px;
   font-weight: 500px;
   line-height: 1.43em;
+}
+
+.main {
+  margin-top: 50px;
 }
 
 .material-icons {
@@ -58,11 +61,7 @@ div {
   margin: 10px 5px;
 }
 
-.location {
-  color: #15c;
-}
-
-.return {
+.blue {
   color: #15c;
 }
 
@@ -94,15 +93,19 @@ div {
   font-size: 2em;
   font-weight: 800;
   font-family: "Open Sans",sans-serif;
+  padding-bottom: 0.5em;
 }
 
 .addToCart {
   color: #fff;
   background-color: #4285f4;
+  text-align: center;
+  width: 250px;
   display: inline-block;
   font-weight: 700;
   line-height: 1.43em;
   margin-bottom: 16px;
+  border-radius: 3px;
   padding: 8px 12px;
   position: relative;
   text-transform: uppercase;
@@ -116,12 +119,18 @@ div {
   margin-bottom: 16px;
   padding: 8px 12px;
   position: relative;
+  outline: #e0e0e0 !important;
+  border: 1px solid rgba(0,0,0,0.38);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 
 .terms {
   font-size: 12px;
   color: rgba(0,0,0,0.54);
   line-height: 1.43em;
+  padding-bottom: 1.5em;
 }
 
 .filler {
@@ -132,10 +141,60 @@ div {
 }
 
 .cart {
-  position: absolute;
-  left: 80px;
+  background-color: #fff;
+  position: fixed;
+  left: 15px;
   top: 10px;
-  z-index: -1;
+  z-index: 1000;
+  color: #999;
+  -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12);
+  -moz-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2),0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12);
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12);
+  background-color: #fff;
+  color: inherit;
+  padding: 24px 16px;
+  display: grid;
+  grid-template-columns: 80px 230px;
+}
+
+
+.itemNum {
+  font-weight: 800;
+}
+
+.containerButton {
+  display: grid;
+  grid-template-columns: 110px 110px 110px;
+  border: lightgrey;
+
+}
+
+.containerLogo {
+  display: grid;
+  grid-template-columns: 80px 230px;
+  padding-bottom: 1em;
+}
+
+.sellerInfoContainer {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+
+.containerLocation {
+  display: grid;
+  grid-template-columns: 60px 270px;
+  padding-bottom: 0.5em;
+}
+
+.deliveryRow {
+  display: grid;
+  grid-template-columns: 60px 270px;
+  padding-bottom: 0.5em;
+}
+
+.protectedContainer {
+  display: grid;
+  grid-template-columns: 30px 300px;
 }
 
 i {
@@ -143,30 +202,78 @@ i {
   font-size: 12px;
 }
 
-.dynamicAddToCart {
-  color:
+.containerButton > i {
+  color: #4285f4;
 }
 
-/* <style>…</style>
-.buyColumn[_ngcontent-c29] {
-    border-left: 1px solid #eee;
-    padding-left: 16px;
+/*
+element.style {
 }
-
 <style>…</style>
-.flexSetWidth[_ngcontent-c29] {
-    flex: 0 0 330px;
-    box-sizing: border-box;
-    max-width: 330px;
-    min-width: 330px;
+.merchantCartProgressContainer[_ngcontent-c77] {
+    padding: 24px 16px;
 }
 user agent stylesheet
 div {
     display: block;
 }
-.mat-drawer-container {
-    background-color: #fafafa;
-    color: rgba(0,0,0,0.87);
+<style>…</style>
+[_nghost-c77] {
+    font-weight: 500;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+<style>…</style>
+.cartProgressSnackbarContainer {
+    -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12);
+    -moz-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2),0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12);
+    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12);
+    background-color: #fff;
+    color: inherit;
+    padding: 0;
+    margin-top: 64px !important;
+}
+.mat-snack-bar-container {
+    background: #323232;
+    color: #fff;
+}
+Style Attribute {
+    pointer-events: auto;
+    position: static;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+.cdk-overlay-pane {
+    position: absolute;
+    pointer-events: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+}
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 body {
     height: 100%;
@@ -187,4 +294,5 @@ html {
     font-smoothing: always;
     -webkit-font-smoothing: antialiased;
     height: 100%;
-} */
+}
+*/
