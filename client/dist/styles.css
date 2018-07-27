@@ -3,7 +3,7 @@ html {
 }
 
 b {
-  font-weight: bold;
+  font-weight: 800;
 }
 
 body {
@@ -30,7 +30,7 @@ div {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 12px;
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -133,13 +133,6 @@ div {
   padding-bottom: 1.5em;
 }
 
-.filler {
-  background: #1DA598;
-  height: 100%;
-  border-radius: inherit;
-  transition: width .2s ease-in;
-}
-
 .cart {
   background-color: #fff;
   position: fixed;
@@ -198,7 +191,7 @@ div {
 }
 
 i {
-  color: #999;
+  color: #4285f4;
   font-size: 12px;
 }
 
@@ -206,93 +199,17 @@ i {
   color: #4285f4;
 }
 
-/*
-element.style {
+.progress-bar {
+  position: relative;
+  height: 20px;
+  width: 300px;
+  border-radius: 50px;
+  border: 1px solid #333;
 }
-<style>…</style>
-.merchantCartProgressContainer[_ngcontent-c77] {
-    padding: 24px 16px;
+
+.filler {
+  background: #1DA598;
+  height: 100%;
+  border-radius: inherit;
+  transition: width .2s ease-in;
 }
-user agent stylesheet
-div {
-    display: block;
-}
-<style>…</style>
-[_nghost-c77] {
-    font-weight: 500;
-}
-user agent stylesheet
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
-}
-<style>…</style>
-.cartProgressSnackbarContainer {
-    -webkit-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12);
-    -moz-box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2),0 3px 4px 0 rgba(0,0,0,0.14),0 3px 3px -2px rgba(0,0,0,0.12);
-    box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2), 0 3px 4px 0 rgba(0,0,0,0.14), 0 3px 3px -2px rgba(0,0,0,0.12);
-    background-color: #fff;
-    color: inherit;
-    padding: 0;
-    margin-top: 64px !important;
-}
-.mat-snack-bar-container {
-    background: #323232;
-    color: #fff;
-}
-Style Attribute {
-    pointer-events: auto;
-    position: static;
-    margin-top: 0px;
-    margin-right: 0px;
-}
-.cdk-overlay-pane {
-    position: absolute;
-    pointer-events: auto;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    z-index: 1000;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    max-width: 100%;
-    max-height: 100%;
-}
-.cdk-overlay-container, .cdk-global-overlay-wrapper {
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-.cdk-overlay-container, .cdk-global-overlay-wrapper {
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-body {
-    height: 100%;
-    background-color: #fff;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    font-family: 'Roboto','Helvetica-neue',sans-serif;
-    font-size: 14px;
-    margin: 0;
-    overflow: hidden;
-}
-html {
-    font-smoothing: always;
-    -webkit-font-smoothing: antialiased;
-    height: 100%;
-}
-*/
