@@ -1,11 +1,11 @@
 import React from 'react';
-//import ProgressBar from './ProgressBar.jsx';
+import ProgressBar from './ProgressBar.jsx';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      percentage: this.props.subtotal / this.props.storeMinimumFreeShipping
+      percentage: this.props.subtotal / this.props.storeMinimumFreeShipping * 100
     }
   }
 
