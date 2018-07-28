@@ -6,12 +6,7 @@ const { generateRandomDate } = dataGenerator;
 const { randomItemPicker } = dataGenerator;
 
 describe('generateRandomNumber', () => {
-  test('Will return a number', () => {
-    const output = generateRandomNumber(15, 20, 0);
-    expect(typeof output).toBe('number');
-  });
-
-  test('Will return a number with decimals', () => {
+test('Will return a number with decimals', () => {
     const output = generateRandomNumber(15, 20, 2);
     expect(output % 10).not.toBe(0);
   });

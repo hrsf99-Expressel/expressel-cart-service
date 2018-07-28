@@ -26,7 +26,6 @@ class App extends React.Component {
   }
 
   getItemInfo(){
-    let id =
     axios.get(`/item/82`).then((response) => {
       this.setState({price: response.data[0].price,
                      deliveryDate: response.data[0].itemDeliveryTime,
@@ -37,17 +36,7 @@ class App extends React.Component {
     })
   };
 
-  fetchInfo () {
-    let id = this.props.id || parseInt(window.location.pathname.split('/')[2], 10);
-    return new Promise((resolve, reject) => {
-      axios.get(`http://localhost:3001/amenities/${id}/amenities`)
-        .then(({ data }) => this.setState({ data: data }))
-        .then(()=> resolve())
-        .catch((error) => {
-          console.log('error', error)
-        });
-    });
-  }
+  //TODO: server problem
 
   componentDidMount() {
     this.getItemInfo();
@@ -142,7 +131,7 @@ class App extends React.Component {
         <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
         <div className="protectedContainer">
           <i className="material-icons md-12">verified_user</i>
-          <div className="howitworks">Expressel works with retailers to protect your order. <span className="blue">Learn more</span></div>  
+          <div className="howitworks">Expressel works with retailers to protect your order. <span className="blue">Learn more</span></div>
         </div>
       </div>
     );
