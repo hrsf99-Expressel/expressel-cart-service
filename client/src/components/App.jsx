@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentID: 1,
+      id: '',
       price: 0,
       deliveryDate: '',
       storeName: '',
@@ -26,7 +26,8 @@ class App extends React.Component {
   }
 
   getItemInfo(){
-    axios.get(`/item/82`).then((response) => {
+    let id = parseInt(window.location.pathname.split('/')[2], 10);
+    axios.get(`/item/${id}/sidebar`).then((response) => {
       this.setState({price: response.data[0].price,
                      deliveryDate: response.data[0].itemDeliveryTime,
                      storeName: response.data[0].storeName,
