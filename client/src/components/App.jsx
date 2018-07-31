@@ -27,7 +27,7 @@ class App extends React.Component {
 
   getItemInfo(){
     let id = parseInt(window.location.pathname.split('/')[2], 10);
-    axios.get(`/item/${id}/sidebar`).then((response) => {
+    axios.get(`http://localhost:3003/item/${id}/sidebar`).then((response) => {
       this.setState({price: response.data[0].price,
                      deliveryDate: response.data[0].itemDeliveryTime,
                      storeName: response.data[0].storeName,
@@ -36,8 +36,6 @@ class App extends React.Component {
                    })
     })
   };
-
-  //TODO: server problem
 
   componentDidMount() {
     this.getItemInfo();
@@ -82,7 +80,7 @@ class App extends React.Component {
         this.setState({
         clicked: false
       })
-    }, 3000);
+    }, 4000);
   }
 
   render() {
@@ -96,6 +94,7 @@ class App extends React.Component {
               storeMinimumFreeShipping={this.state.storeMinimumFreeShipping}
             />
     }
+    console.log('app render')
     return (
       <div className="main">
         <div>

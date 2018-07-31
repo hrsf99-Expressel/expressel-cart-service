@@ -1,17 +1,18 @@
 import React from 'react';
+import ProgressBar from './ProgressBar.jsx';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      percentage: this.props.subtotal / this.props.storeMinimumFreeShipping * 100
-    }
+    // this.state = {
+    //   percentage: this.props.subtotal / this.props.storeMinimumFreeShipping * 100
+    // }
   }
 
   render() {
     let line;
     if (this.props.subtotal < this.props.storeMinimumFreeShipping && this.props.subtotal > 0) {
-      line = <div>${this.props.storeMinimumFreeShipping - this.props.subtotal} to FREE delivery</div>
+      line = <div>${(this.props.storeMinimumFreeShipping - this.props.subtotal).toFixed(2)} to FREE delivery</div>
     }
     if (this.props.subtotal >= this.props.storeMinimumFreeShipping) {
       line = <div>Subtotal: ${this.props.subtotal} - FREE delivery</div>
@@ -22,7 +23,10 @@ class Cart extends React.Component {
     return (
       <div className="cart">
         <img className="logo" src={this.props.storeLogo} />
-        {line}
+        <div className="progress-container">
+          {line}
+          <ProgressBar percentage={this.props.subtotal / this.props.storeMinimumFreeShipping * 100}/>
+        </div>
       </div>
     )
   }
