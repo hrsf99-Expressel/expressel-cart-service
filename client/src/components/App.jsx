@@ -27,14 +27,18 @@ class App extends React.Component {
 
   getItemInfo(){
     let id = parseInt(window.location.pathname.split('/')[2], 10);
-    axios.get(`http://localhost:3003/item/${id}/sidebar`).then((response) => {
-      this.setState({price: response.data[0].price,
-                     deliveryDate: response.data[0].itemDeliveryTime,
-                     storeName: response.data[0].storeName,
-                     storeLogo: response.data[0].storeLogo,
-                     storeMinimumFreeShipping: response.data[0].storeMinimumFreeShipping
-                   })
-    })
+    axios.get(`http://localhost:3003/item/${id}/sidebar`)
+      .then((response) => {
+        this.setState({price: response.data[0].price,
+                      deliveryDate: response.data[0].itemDeliveryTime,
+                      storeName: response.data[0].storeName,
+                      storeLogo: response.data[0].storeLogo,
+                      storeMinimumFreeShipping: response.data[0].storeMinimumFreeShipping
+                    })
+                  })
+      .catch((error) => {
+        console.log('Error getting data through axios: ', error);
+      })
   };
 
   componentDidMount() {
@@ -47,8 +51,8 @@ class App extends React.Component {
     this.setState({itemNum: 1,
                   subtotal: this.state.price,
                   clicked: true}, () => {
-                    console.log(this.state.itemNum);
-                    console.log(this.state.subtotal);
+                    //console.log(this.state.itemNum);
+                    //console.log(this.state.subtotal);
                   });
     this.revertState();
   }
@@ -58,8 +62,8 @@ class App extends React.Component {
     this.setState({itemNum: this.state.itemNum - 1,
                   subtotal: this.state.subtotal - this.state.price,
                   clicked: true}, () => {
-                    console.log(this.state.itemNum);
-                    console.log(this.state.subtotal);
+                    //console.log(this.state.itemNum);
+                    //console.log(this.state.subtotal);
                   });
     this.revertState();
   }
@@ -69,8 +73,8 @@ class App extends React.Component {
     this.setState({itemNum: this.state.itemNum + 1,
                   subtotal: this.state.subtotal + this.state.price,
                   clicked: true}, () => {
-                    console.log(this.state.itemNum);
-                    console.log(this.state.subtotal);
+                    //console.log(this.state.itemNum);
+                    //console.log(this.state.subtotal);
                   });
     this.revertState();
   }
@@ -94,7 +98,6 @@ class App extends React.Component {
               storeMinimumFreeShipping={this.state.storeMinimumFreeShipping}
             />
     }
-    console.log('app render')
     return (
       <div className="main">
         <div>
@@ -128,7 +131,8 @@ class App extends React.Component {
           <StaticAddToCart onStaticAddToCartClicked={this.onStaticAddToCartClicked}/>
         )}
         </div>
-        <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>. Expires Jul 31 2018. Exclusions apply. See Terms.</div>
+        <div className="terms">20% off your first order, up to $20 with code <b>SUMMERFUN</b>.</div>
+        <div className="terms">Expires {this.state.deliveryDate}. Exclusions apply. See Terms.</div>
         <div className="protectedContainer">
           <i className="material-icons md-12">verified_user</i>
           <div className="howitworks">Expressel works with retailers to protect your order. <span className="blue">Learn more</span></div>

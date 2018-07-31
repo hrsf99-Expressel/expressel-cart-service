@@ -125,13 +125,12 @@ div {
   font-size: 12px;
   color: rgba(0,0,0,0.54);
   line-height: 1.43em;
-  padding-bottom: 1.5em;
 }
 
 .cart {
   background-color: #fff;
   position: fixed;
-  left: 15px;
+  right: 220px;
   top: 10px;
   z-index: 1000;
   color: #999;
