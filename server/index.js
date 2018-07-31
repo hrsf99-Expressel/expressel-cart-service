@@ -7,6 +7,8 @@ const app = express();
 
 const PORT = 3003;
 
+// Use cors to allow cross origin request
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/item/:id', express.static(__dirname + '/../client/dist'));
