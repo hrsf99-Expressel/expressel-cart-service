@@ -1,13 +1,12 @@
-b {
-  font-weight: 800;
-}
-
 body {
   border-left: 1px solid #eee;
   padding-left: 16px;
   box-sizing: border-box;
   max-width: 330px;
-  min-width: 330px;
+}
+
+b {
+  font-weight: 800;
 }
 
 div {
@@ -110,16 +109,16 @@ div {
 .dynamicAddToCart {
   display: inline-block;
   width: 100%;
-  max-width: 330px;
+  max-width: 250px;
   line-height: 1.43em;
   margin-bottom: 16px;
-  padding: 8px 12px;
+  padding: 5px 8px 3px 10px;
   position: relative;
-  outline: #e0e0e0 !important;
-  border: 1px solid rgba(0,0,0,0.38);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
-  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 100px 110px 30px;
+  border: 1px solid #e0e0e0;
 }
 
 .terms {
@@ -149,13 +148,6 @@ div {
 
 .itemNum {
   font-weight: 800;
-}
-
-.containerButton {
-  display: grid;
-  grid-template-columns: 110px 110px 110px;
-  border: lightgrey;
-
 }
 
 .containerLogo {
