@@ -84,7 +84,7 @@ const generateItems = (num) => {
   for (let i = 0; i < num; i++) {
     const randomStore = randomItemPicker(stores);
     const generatedItem = {
-      price: generateRandomNumber(1, 1000, 2),
+      price: generateRandomNumber(1, 50, 2),
       storeID: randomStore.storeID,
       storeName: randomStore.storeName,
       storeLogo: randomStore.logo,
