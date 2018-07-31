@@ -15,7 +15,6 @@ const Filler = ({percentage}) => {
   } else {
     progress = "filler-full";
   }
-  console.log(percentage)
   return (
     <div className={progress} style={{ width: `${percentage}%` }} />
   )

@@ -197,15 +197,31 @@ i {
 
 .progress-bar {
   position: relative;
-  height: 20px;
-  width: 300px;
-  border-radius: 50px;
-  border: 1px solid #333;
+  height: 12px;
+  width: 200px;
+  border-radius: 2px;
 }
 
 .filler {
-  background: #1DA598;
+  background: #00e676;
   height: 100%;
-  border-radius: inherit;
+  border-radius: 2px;
   transition: width .2s ease-in;
+  max-width: 200px;
+}
+
+.filler-full {
+  background: #43a047;
+  height: 100%;
+  border-radius: 2px;
+  transition: width .2s ease-in;
+  max-width: 200px;
+}
+
+.base-filler {
+  background: #e0e0e0;
+  height: 100%;
+  border-radius: 2px;
+  transition: width .2s ease-in;
+  max-width: 200px;
 }

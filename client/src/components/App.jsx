@@ -116,7 +116,7 @@ class App extends React.Component {
           </div>
         </div>
         <div className="saving">Deal: 20% off your first order</div>
-        <div className="effectivePrice">${this.state.price}</div>
+        <div className="effectivePrice">${(this.state.price).toFixed(2)}</div>
         <div>
           {itemNum ? (
           <DynamicAddToCart
