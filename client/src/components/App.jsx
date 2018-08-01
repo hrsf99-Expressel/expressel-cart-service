@@ -25,8 +25,8 @@ class App extends React.Component {
     this.revertState = this.revertState.bind(this);
   }
 
-  getItemInfo(){
-    let id = parseInt(window.location.pathname.split('/')[2], 10);
+  getItemInfo(id){
+    // let id = parseInt(window.location.pathname.split('/')[2], 10);
     axios.get(`http://localhost:3003/item/${id}/sidebar`)
       .then((response) => {
         this.setState({price: response.data[0].price,
@@ -42,7 +42,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    this.getItemInfo();
+    this.getItemInfo(parseInt(window.location.pathname.split('/')[2], 10));
   };
 
   onStaticAddToCartClicked(e) {
@@ -120,7 +120,7 @@ class App extends React.Component {
         </div>
         <div className="saving">Deal: 20% off your first order</div>
         <div className="effectivePrice">${(this.state.price).toFixed(2)}</div>
-        <div>
+        <div className="add-to-cart">
           {itemNum ? (
           <DynamicAddToCart
             onMinusSignClicked={this.onMinusSignClicked}
