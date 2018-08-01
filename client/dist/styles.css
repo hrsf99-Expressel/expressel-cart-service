@@ -2,7 +2,7 @@ body {
   border-left: 1px solid #eee;
   padding-left: 16px;
   box-sizing: border-box;
-  max-width: 330px;
+  /*max-width: 330px;*/
 }
 
 b {
