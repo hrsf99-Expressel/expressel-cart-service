@@ -17,6 +17,16 @@ div {
   line-height: 1.43em;
 }
 
+img {
+  max-width: 1000px;
+  height: auto;
+}
+
+.first-row {
+  display: grid;
+  grid-template-columns: 1100px 400px;
+}
+
 .main {
   margin-top: 50px;
 }
