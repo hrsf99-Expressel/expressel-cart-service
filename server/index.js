@@ -1,11 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const morgan = require('morgan');
 const db = require('../db/index.js');
+require('dotenv').config();
 
 const app = express();
-
-const PORT = 3003;
+const PORT = parseInt(process.env.PORT, 10) || 3003;
 
 // Use cors to allow cross origin request
 app.use(cors());
@@ -25,6 +26,10 @@ app.get('/item/:id/sidebar', (req, res) => {
     }
   });
 });
+
+// app.get('/', (req, res) => {
+//   res.redirect('/item/1/sidebar');
+// });
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

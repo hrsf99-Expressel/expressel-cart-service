@@ -1,13 +1,13 @@
 const mysql = require('mysql');
 
 const connection = mysql.createConnection({
-  host: 'mysql',
+  host: 'localhost',
   user: 'root',
   password: '',
   database: 'expressel',
 });
 
-connection.connect();
+//connection.connect();
 
 const getItembyID = (id, callback) => {
   connection.query('select * from items where `id` = ?', [id], callback);

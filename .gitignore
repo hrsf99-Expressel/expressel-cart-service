@@ -24,3 +24,8 @@ coverage
 
 # AWS key
 aws-keys.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
