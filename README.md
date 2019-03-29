@@ -43,13 +43,14 @@ Trello
 All dependencies are listed package.json.
 
 ### Installing Dependencies
-From within the root directory:
+- From within the root directory:
 
 ```
 npm install
 ```
 
 Running locally
+
 From within the root directory:
 
 To run server
