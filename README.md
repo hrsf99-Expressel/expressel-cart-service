@@ -1,4 +1,4 @@
-# Project Name
+# Expressel 
 
 This is a single item page for the pricing sidebar and cart functionality for an e-commerce website.
 
